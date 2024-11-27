@@ -467,6 +467,12 @@ jobs:
     steps:
       - name: Check out code from GitHub
         uses: actions/checkout@v4.2.2
+
+      - uses: listendev/action@v0.12
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only
+
       - name: Set up Python ${{ matrix.python-version }}
         id: python
         uses: actions/setup-python@v5.3.0
@@ -838,6 +844,12 @@ jobs:
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
           check-latest: true
+
+      - uses: listendev/action@v0.12
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only
+
       - name: Restore base Python virtual environment
         id: cache-venv
         uses: actions/cache/restore@v4.1.2
@@ -896,6 +908,12 @@ jobs:
             libgammu-dev
       - name: Check out code from GitHub
         uses: actions/checkout@v4.2.2
+
+      - uses: listendev/action@v0.12
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only
+
       - name: Set up Python ${{ matrix.python-version }}
         id: python
         uses: actions/setup-python@v5.3.0
